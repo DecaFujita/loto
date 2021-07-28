@@ -1,0 +1,16 @@
+.ticket {
+    width: 600px;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin: 20px auto;
+    padding-top: 10px;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-title {
+    margin: 30px;
+}

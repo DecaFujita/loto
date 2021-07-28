@@ -1,0 +1,22 @@
+.button {
+    padding: 10px 20px;
+    background-color: grey;
+    color: white;
+    border: 2px solid grey;
+    border-radius: 50px;
+    font-size: 14px;
+    margin: 30px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
+    color: grey;
+    border: 2px solid grey;
+}
+
+.button:active {
+    background-color: goldenrod;
+    color: white;
+    border: 2px solid goldenrod;
+}
