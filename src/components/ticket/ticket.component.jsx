@@ -10,7 +10,7 @@ class Ticket extends React.Component {
         super(props);
 
         this.state = {
-            numbers: [0, 0, 0, 0, 0, 0]
+            numbers: Array.from({length: this.props.maxNum})
         }
     }
 
