@@ -1,32 +1,44 @@
 import React from 'react';
 
-import Ball from '../ball/ball.components'
+import Ball from '../ball/ball.components';
 import Button from '../button/button.component';
 
 import './ticket.styles.css';
 
+class Ticket extends React.Component {
+    constructor(props) {
+        super(props);
 
-const Ticket =({allNum, maxNum, title}) => {
-    let selectedNumbers = [];
-    while (selectedNumbers.length < maxNum) {
-        let randNumber = Math.ceil(Math.random() * allNum);
-        let filteredNumber = selectedNumbers.filter(n => n === randNumber)
-        if (filteredNumber.length === 0) {
-            selectedNumbers.push(randNumber)
-        }  
+        this.state = {
+            numbers: [0, 0, 0, 0, 0, 0]
+        }
     }
-    
-    return(
-        <div className='ticket'>
-            <h1 className='ticket-title'>{title}</h1>
-            <div className='ticket-row'>
-            {selectedNumbers.map(number => (
-                <Ball number={number} />
-            ))}
+
+    selector = () => {
+        let selectedNumbers = [];
+        while (selectedNumbers.length < this.props.maxNum) {
+            let randNumber = Math.ceil(Math.random() * this.props.allNum);
+            let filteredNumber = selectedNumbers.filter(n => n === randNumber)
+            if (filteredNumber.length === 0) {
+                selectedNumbers.push(randNumber)
+            }
+        }
+        this.setState({numbers: selectedNumbers})
+    }
+
+    render() {
+        return(
+            <div className='ticket'>
+                <h1 className='ticket-title'>{this.props.title}</h1>
+                <div className='ticket-row'>
+                {this.state.numbers.map(number => (
+                    <Ball number={number} />
+                ))}
+                </div>
+                <Button text='Generate' action={this.selector}/>
             </div>
-            <Button text='Generate' action={selector}/>
-        </div>
-    )
-};
+        )
+    }
+}
 
 export default Ticket;
